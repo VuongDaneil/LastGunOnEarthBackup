@@ -69,6 +69,5 @@ public class WeaponBob : MonoBehaviour
             currentWeapon_animator.SetTrigger("stopbob");
             currentWeapon_animator.ResetTrigger("startbob");
         }
-        
     }
 }
