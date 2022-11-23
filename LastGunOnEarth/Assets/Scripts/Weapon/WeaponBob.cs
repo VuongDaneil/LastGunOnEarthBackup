@@ -45,8 +45,10 @@ public class WeaponBob : MonoBehaviour
         {
             currentWeapon_animator.SetTrigger("startbob");
             currentWeapon_animator.ResetTrigger("stopbob");
+
             currentWeapon_animator.SetTrigger("startrun");
             currentWeapon_animator.ResetTrigger("stoprun");
+
             currentWeapon_animator.SetBool("runLoop", true);
             print(currentSpeed);
         }
@@ -54,10 +56,13 @@ public class WeaponBob : MonoBehaviour
         {
             currentWeapon_animator.SetTrigger("stopbob");
             currentWeapon_animator.ResetTrigger("startbob");
+
             currentWeapon_animator.SetTrigger("stoprun");
             currentWeapon_animator.ResetTrigger("startrun");
+
             currentWeapon_animator.SetBool("runLoop", false);
         }
+
         //Animation đi bộ
         if (currentSpeed > 10f)
         {
