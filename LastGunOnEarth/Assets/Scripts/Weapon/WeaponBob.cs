@@ -34,7 +34,7 @@ public class WeaponBob : MonoBehaviour
                     if (currentWeapon_slot.transform.GetChild(j).gameObject.activeSelf)
                     {
                         currentWeapon_gun = currentWeapon_slot.transform.GetChild(j).gameObject; //Lấy vũ khí hiện tại đang được active
-                        currentWeapon_animator = currentWeapon_gun.GetComponent<Animator>(); //Lấy ra animator cuar vũ khí hiện tại
+                        currentWeapon_animator = currentWeapon_gun.GetComponent<Animator>(); //Lấy ra animator của vũ khí hiện tại
                     }
                 }
             }

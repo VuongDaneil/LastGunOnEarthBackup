@@ -62,7 +62,6 @@ public class WeaponsManager : MonoBehaviour
             }
         }
     }
-
     void changeRifle(int num)
     {
         current_weapon = num;

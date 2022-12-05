@@ -5,17 +5,23 @@ using UnityEngine;
 public class democombat : MonoBehaviour
 {
     public Animator anim;
-    GameObject Weapons, currentWeapon_slot, currentWeapon_gun;
-    Animator currentWeapon_animator;
+    GameObject Weapons, currentWeapon_slot, currentWeapon_gun, scope, crosshair;
+    Animator currentWeapon_animator, mainam_animator;
     public Rigidbody rb;
     float currentSpeed;
     Camera maincam;
     float default_FOV;
+    public float ADS_fov, Scope_fov, Pistol_fov;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         Weapons = GameObject.FindWithTag("Weapon_bag");
+
+        scope = GameObject.FindWithTag("scope");
+
+        crosshair = GameObject.FindWithTag("crosshair_UI");
+
         maincam = GetComponentInChildren<Camera>();
         default_FOV = maincam.fieldOfView;
     }
@@ -45,10 +51,28 @@ public class democombat : MonoBehaviour
         //Test ADS
         if (Input.GetMouseButtonDown(1))
         {
+            crosshair.SetActive(false);
             currentWeapon_animator.SetTrigger("startADS");
             currentWeapon_animator.ResetTrigger("stopADS");
             currentWeapon_animator.SetBool("keepADS", true);
-            maincam.fieldOfView = 40;
+
+            
+            if (currentWeapon_gun.tag == "sniper")
+            {
+                currentWeapon_gun.GetComponent<MeshRenderer>().enabled = false;
+                currentWeapon_gun.transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().enabled = false;
+                currentWeapon_gun.transform.GetChild(1).gameObject.GetComponent<MeshRenderer>().enabled = false;
+
+                scope.GetComponent<Canvas>().enabled = true;
+
+                maincam.fieldOfView = Scope_fov;
+            }
+            else if (currentWeapon_gun.tag == "pistol")
+            {
+                maincam.fieldOfView = Pistol_fov;
+            }
+            else maincam.fieldOfView = ADS_fov;
+
             if (Input.GetMouseButton(0))
             {
                 currentWeapon_animator.SetTrigger("startShooting");
@@ -63,6 +87,16 @@ public class democombat : MonoBehaviour
         }
         if (Input.GetMouseButtonUp(1))
         {
+            crosshair.SetActive(true);
+            if (currentWeapon_gun.tag == "sniper")
+            {
+                currentWeapon_gun.GetComponent<MeshRenderer>().enabled = true;
+                currentWeapon_gun.transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().enabled = true;
+                currentWeapon_gun.transform.GetChild(1).gameObject.GetComponent<MeshRenderer>().enabled = true;
+                scope.GetComponent<Canvas>().enabled = false;
+            }
+            
+
             currentWeapon_animator.SetTrigger("stopADS");
             currentWeapon_animator.ResetTrigger("startADS");
             currentWeapon_animator.SetBool("keepADS", false);
@@ -70,6 +104,7 @@ public class democombat : MonoBehaviour
         }
         if (Input.GetMouseButton(0))
         {
+            scope.GetComponent<Canvas>().enabled = false;
             currentWeapon_animator.SetTrigger("startShooting");
             currentWeapon_animator.ResetTrigger("stopShooting");
         }

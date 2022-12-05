@@ -365,6 +365,7 @@
 "Assets/RainMaker/Prefab/RainCollision.cs"
 "Assets/RainMaker/Prefab/RainScript.cs"
 "Assets/RainMaker/Prefab/RainScript2D.cs"
+"Assets/Scripts/CameraShake.cs"
 "Assets/Scripts/Flash.cs"
 "Assets/Scripts/IntroCutscene.cs"
 "Assets/Scripts/LightRange.cs"

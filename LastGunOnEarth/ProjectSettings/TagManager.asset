@@ -16,6 +16,10 @@ TagManager:
   - cutscene_endpoint
   - Life_GUI
   - Status_UI
+  - sniper
+  - scope
+  - crosshair_UI
+  - pistol
   layers:
   - Default
   - TransparentFX
