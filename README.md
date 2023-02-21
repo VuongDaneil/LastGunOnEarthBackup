@@ -3,7 +3,7 @@
 
 ##### General:
 - Một tựa game bắn súng góc nhìn thứ nhất (FPS) được thực hiện bởi engine Unity. Tựa game có nối chơi endless survival, người chơi sẽ tìm cách chiến đấu và sinh tồn lâu nhất có thể trước đa dạng các loại kẻ thù.
-- 
+ 
 ##### Gameplay & Plot:
 - Người chơi điều khiển một người lính mắc kẹt sau khi trực thăng bị rơi, nhân vật phải chiến đấu với kẻ thù là các chủng nhện. Người chơi được tự do di chuyển trong một không gian bản đồ, các loại quái vật sẽ được spawn ngẫu nhiên từ một vài điểm cố định trên bản đồ đó.
 - Về cơ chế gameplay, chế độ chơi cơ bản của game sẽ chia tiến trình chơi của người chơi từ dễ đến khó theo thời gian, các loại quái vật sẽ tấn công người chơi theo từng đọt, giữa các đợt sẽ có quãng nghỉ để nhân vật chuẩn bị cho đợt mới, không có giới hạn số đợt và thời gian chơi.
